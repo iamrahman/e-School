@@ -1,0 +1,96 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
+                <label class="title-5 m-b-35">Courses</label>
+                <div class="table-data__tool" style="float:right">
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#mediumModal">
+                            <i class="zmdi zmdi-plus"></i>New Course
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive m-b-40" ng-init="getAPIData('all-courses', 'Course')">
+                    <table class="table table-borderless table-data3">
+                        <thead>
+                            <tr>
+                                <th>S No</th>
+                                <th>Course Name</th>
+                                <th>Class</th>
+                                <th>Assigned Teacher</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="key in Course track by $index">
+                            <tr>
+                                <td>{{$index + 1}}</td>
+                                <td>{{ key.name }}</td>
+                                <td>{{ key.classroom.name }} / {{ key.classroom.section }}</td>
+                                <td><a href="#">{{ key.teacher.name }}</a></td>
+                                <td class="process">Active</td>
+                                <td>
+                                    <a href="#">Edit</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END DATA TABLE -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal medium -->
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Add New Class</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" ng-init="getAPIData('all-classes', 'Classroom')">
+                <div class="card-body" ng-init="getAPIData('all-teacher', 'Teacher')">
+                    <form ng-submit="callApiGetData(data, 'create-course', 'all-courses', 'Course')" id="myForm">
+                        <div class="form-group">
+                            <label for="name" class="control-label mb-1">Course Name</label>
+                            <input id="name" ng-model="data.name" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="classroom_id" class="control-label mb-1">Classroom</label>
+                                    <select id="classroom_id" ng-model="data.classroom_id" class="form-control">
+                                        <option value="">Select Classroom</option>
+                                        <option ng-repeat="key in Classroom" value="{{ key.id }}"> {{ key.name }} / {{ key.section }}</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="teacher_id" class="control-label mb-1">Assigned Teacher</label>
+                                    <select id="teacher_id" ng-model="data.teacher_id" class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="{{ key.id }}"> {{ key.name }} / {{ key.dob }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                <span id="payment-button-amount">Create</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                    </div> -->
+        </div>
+    </div>
+</div>

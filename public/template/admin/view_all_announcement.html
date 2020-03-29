@@ -1,0 +1,35 @@
+<div class="section__content section__content--p30">
+        <div class="container-fluid">
+                <div class="row" ng-init="getAPIData('my-announcement', 'Data')">
+                        <div class="col-md-12">
+                            <!-- DATA TABLE -->
+                            <h3 class="title-5 m-b-35"><a href="#!announcement"><i class="fa  fa-chevron-left"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;All Anncouncements</h3>
+                            <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>date</th>
+                                                <th>from</th>
+                                                <th>to</th>
+                                                <th>Subject</th>
+                                                <th colspan="2">message</th>
+                                                <th>action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="key in Data">
+                                            <tr>
+                                                <td>{{ key.created_at.substr(0,10) }}</td>
+                                                <td>{{ key.from }}</td>
+                                                <td>{{ key.to }}</td>
+                                                <td>{{ key.subject }}</td>
+                                                <td colspan="2">{{ key.body }}</td>
+                                                <td><a style="color:red"><i class="fa fa-trash"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <!-- END DATA TABLE -->
+                        </div>
+                    </div>
+        </div>
+</div>

@@ -1,0 +1,136 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid" ng-init="show =true">
+        <div class="row" ng-init="getAPIData('all-classes', 'Class')">
+            <div class="col-md-12">
+                <div class="float:left">
+                    <label>Select Class</label>
+                    <select>
+                        <option>Select Class</option>
+                        <option ng-repeat="key in Class" value="{{ key.id }}">{{ key.name }} {{ key.section }}</option>
+                    </select>
+                </div>
+                <div style="float:right">
+                    <button class="btn btn-sm btn-success" ng-if="!show" ng-click="show = !show" >Save</button>
+                    <button class="btn btn-sm btn-warning" ng-click="show = !show" >Edit</button>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top:10px">
+                <div class="table-responsive m-b-40" ng-init="getAPIData('all-teacher', 'Teacher')">
+                    <table class="table table-borderless table-data3">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">Duration</th>
+                                <th style="text-align: center">Monday</th>
+                                <th style="text-align: center">Tuesday</th>
+                                <th style="text-align: center">Wednesday</th>
+                                <th style="text-align: center">Thrusday</th>
+                                <th style="text-align: center">Friday</th>
+                                <th style="text-align: center">Saturday</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-if="!show" ng-repeat="key in [0,1,2,3]">
+                            <tr>
+                                <td style="background-color: rgb(32, 31, 31); color: white;">
+                                    <label style="text-align: center">From
+                                        <input type="time" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    </label>
+                                    <label style="text-align: center">To
+                                        <input type="time" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" style="width:auto" placeholder="Subject Name" />
+                                    <br>
+                                    <select class="form-control">
+                                        <option value="">Select Teacher</option>
+                                        <option ng-repeat="key in Teacher" value="key.id">{{ key.name }}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody ng-if="show" ng-repeat="key in [0,1,2,3]">
+                            <tr>
+                                <td style="background-color: rgb(32, 31, 31); color: white;">
+                                    <label style="text-align: center">12:24 PM
+                                        <br> -
+                                        <br>02:30 PM</label>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                                <td>
+                                    <b>English</b>
+                                    <br>
+                                    <a href="#">Amit Kumar</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END DATA TABLE -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
+                <label class="title-5 m-b-35">Teachers</label>
+                <div class="table-data__tool" style="float:right">
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#mediumModal">
+                            <i class="zmdi zmdi-plus"></i>New Teacher
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive m-b-40" ng-init="getAPIData('all-teacher', 'Teacher')">
+                    <table class="table table-borderless table-data3">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="key in Teacher">
+                            <tr>
+                                <td>{{ key.name }}</td>
+                                <td>{{ key.phone }}</td>
+                                <td>{{ key.email }}</td>
+                                <td ng-if="key.status==='active'" class="process">Active</td>
+                                <td ng-if="key.status==='pending'" class="denied">Pending</td>
+                                <td>
+                                    <a href="#!student_profile/{{ key.id }}">View</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END DATA TABLE -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal medium -->
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document" ng-init="getAPIData('all-classes', 'AllClass')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Register New Teacher</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form ng-submit="callApiGetData(data,'create-teacher','all-teacher', 'Teacher')" id="myForm">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="cc-exp" class="control-label mb-1">Full Name</label>
+                                        <div class="input-group">
+                                            <input ng-model="data.name" class="form-control cc-cvc" placeholder="Enter Full Name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="cc-exp" class="control-label mb-1">Email Address</label>
+                                    <div class="input-group">
+                                        <input ng-model="data.email" class="form-control cc-cvc" placeholder="Enter Email Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="x_card_code" class="control-label mb-1">Contact Number</label>
+                                <div class="input-group">
+                                    <input ng-model="data.phone" class="form-control cc-cvc" placeholder="Enter Contact Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="cc-exp" class="control-label mb-1">Father Name</label>
+                                    <div class="input-group">
+                                        <input ng-model="data.father_name" class="form-control cc-cvc" placeholder="Enter Father Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="x_card_code" class="control-label mb-1">Mother Name</label>
+                                <div class="input-group">
+                                    <input ng-model="data.mother_name" class="form-control cc-cvc" placeholder="Enter Mother Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="cc-exp" class="control-label mb-1">Date of Birth</label>
+                                    <div class="input-group">
+                                        <input type="date" ng-model="data.dob" class="form-control cc-cvc" placeholder="Enter Date of Birth">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="cc-exp" class="control-label mb-1">Generate Password</label>
+                                    <div class="input-group">
+                                        <input type="text" ng-model="data.password" class="form-control cc-cvc" placeholder="Enter Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="control-label mb-1">Address</label>
+                            <input id="address" name="address" ng-model="data.address" class="form-control address" value="" data-val="true" placeholder="Enter Full Address">
+                            <span class="help-block" data-valmsg-for="address" data-valmsg-replace="true"></span>
+                        </div>
+                        <br>
+                        <div>
+                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                <span id="payment-button-amount">Register</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- DATA TABLE -->
+                <label class="title-5 m-b-35">Upload Marks</label>
+                <div class="table-data__tool" style="float:right" ng-init="getAPIData('get-subject-class', 'Class')">
+                    <div class="table-data__tool-right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select class="form-control" ng-change="onChangeAPI('get-my-student', 'get-my-student?' + 'class_id=' + changeData, 'Student', changeData)"
+                                    ng-model="changeData">
+                                    <option value="">All</option>
+                                    <option ng-repeat="value in Class" value="{{ value.id }}">{{ value.name }} - {{ value.classroom.name }} - {{ value.classroom.section }}</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small" style="float:left" data-toggle="modal" data-target="#mediumModal">
+                                        <i class="zmdi zmdi-plus"></i>Add
+                                    </button>
+                                </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive m-b-40" ng-init="getAPIData('get-my-student', 'Student')">
+                    <table class="table table-borderless table-data3">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>
+                                    <input type="number" class="form-control" placeholder="Enter Maximum Marks" ng-model="marksData.max_marks" />
+                                </th>
+                                <th>Obtained</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <form ng-submit="uploadMarks(marksData)">
+                            <tbody> {{ marksData }}
+                                <tr ng-repeat="key in Student track by $index">
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ key.name }}</td>
+                                    <td>
+                                        <input type="number" class="form-control" disabled="true" ng-model="marksData.max_marks" />
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" ng-model="marksData.score[$index]" placeholder="Scored" />
+                                    </td>
+                                    <td class="process">Active</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success">Upload</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </form>
+                    </table>
+                </div>
+                <!-- END DATA TABLE -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12" ng-init="getAPIData('all-classes', 'Class')">
+                <!-- USER DATA-->
+                <div class="user-data m-b-30">
+                    <b class="title-3 m-b-30">
+                        <i class="zmdi zmdi-account-calendar"></i>Students Results</b>
+                    <div class="filters m-b-45" style="float: right">
+                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                            <select class="js-select2" name="property">
+                                <option selected="selected">Select Exam</option>
+                                <option>First Term</option>
+                                <option>Half Term</option>
+                                <option>Secound Term</option>
+                                <option>Final Term</option>
+                            </select>
+                        </div>
+                        <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                            <select class="js-select2" name="property">
+                                <option selected="selected">Select Class</option>
+                                <option ng-repeat="key in Class" value="{{ key.id }}">{{ key.name }} - {{ key.section }}</option>
+                            </select>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--border">
+                            <select class="js-select2 au-select-dark" name="time">
+                                <option value="">By Rank</option>
+                                <option value="">By Name</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data1">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <b>Name</b>
+                                    </td>
+                                    <td>
+                                        <b>Address</b>
+                                    </td>
+                                    <td>
+                                        <b>role</b>
+                                    </td>
+                                    <td>
+                                        <b>type</b>
+                                    </td>
+                                    <td>
+                                        <b>Action</b>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>Mobile</td>
+                                    <td>iPhone X 64Gb Grey</td>
+                                    <td class="process">Processed</td>
+                                    <td>
+                                        <a href="#!student_profile">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="user-data__footer">
+                        <button class="au-btn au-btn-load">load more</button>
+                    </div>
+                </div>
+                <!-- END USER DATA-->
+            </div>
+        </div>
+    </div>
+</div>
